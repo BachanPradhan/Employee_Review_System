@@ -1,13 +1,24 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://127.0.0.1:27017/employee_review_db`);
+// mongoose.connect(`mongodb://127.0.0.1:27017/employee_review_db`);
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'Error connecting to the db'));
+// db.on('error', console.error.bind(console, 'Error connecting to the db'));
 
-db.once('open', function () {
-  console.log("Successfully connected to the Database");
-});
+// db.once('open', function () {
+//   console.log("Successfully connected to the Database");
+// });
 
-module.exports = db;
+// module.exports = db;
+
+const mongoose = require("mongoose");
+//mongoose.set('strictQuery', false);
+const mongoDB = "mongodb://127.0.0.1/contact_list_db"; 
+
+
+main().catch(err => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+  console.log('connected to DB');
+}
